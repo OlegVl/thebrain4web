@@ -7,18 +7,16 @@ import org.junit.Test;
 
 import pageobjects.HomePage;
 import pageobjects.ProfilePage;
-import pageobjects.TutorialPage;
 import popups.LoginPopup;
 
-public class VerifyNewTutorialRecords {
+public class VerifyNewTutorialRecordsTest {
 
 	@Test
 	public void verifyNewTitleTest() throws InterruptedException {
 		LoginPopup loginPopup = new HomePage().open().goToLoginPopup();
 		ProfilePage profilelPage = loginPopup.login().goToProfilePage();
-		profilelPage.openMyTutorials();
+		profilelPage.openMyTutorials().verifyCreatedTutorial();
 	}
-	
 
 	@AfterClass
 	public static void tearDown() {

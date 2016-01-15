@@ -11,8 +11,9 @@ public class ProfilePage extends MainPage<ProfilePage> {
 	@FindBy(xpath = "//a[@href='#mijn-klussen']")
 	WebElement myTutorials;
 
-	public void openMyTutorials() {
+	public ProfilePage openMyTutorials() {
 		myTutorials.click();
+		return new ProfilePage();
 	}
 
 	public void verifyCreatedTutorial() {

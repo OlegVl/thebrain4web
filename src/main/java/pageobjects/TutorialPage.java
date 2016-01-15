@@ -1,8 +1,10 @@
 package pageobjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import static setup.SeleniumDriver.getDriver;
 
 public class TutorialPage extends MainPage<TutorialPage>{
 
@@ -15,6 +17,7 @@ public class TutorialPage extends MainPage<TutorialPage>{
 	private static final String STEP1_DESCRIPTION = "Some text";
 	private static final String STEP2_DESCRIPTION = "Some text";
 	private static final String STEP3_DESCRIPTION = "Some text";
+	private static final String MSG_IN_ALERT = getDriver().switchTo().alert().getText();
 	
 	@FindBy(css = ".icon-camera-1")
 	WebElement uploadPicture;
@@ -52,6 +55,14 @@ public class TutorialPage extends MainPage<TutorialPage>{
 	@FindBy(xpath = "//button[text()='Opslaan']")
 	WebElement submitButton;
 		
+	@FindBy(xpath = "//li[contains(text(),'__not required')]")
+	WebElement errorPopup;
+	
+	
+	public void verifyPopupError(){
+		Assert.assertEquals(errorPopup.getText().compareTo(MSG_IN_ALERT), true);
+	}
+	
 	public void uploadPicture(){
 		uploadPicture.click();
 		uploadPicture.sendKeys("C:'\'Users'\'Korsar'\'Desktop'\'1.png");
