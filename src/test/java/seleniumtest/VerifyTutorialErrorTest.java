@@ -10,6 +10,7 @@ import pageobjects.TutorialPage;
 import popups.LoginPopup;
 
 public class VerifyTutorialErrorTest {
+	
 	@Test
 	public void createNewTitleAndCheckErrorMessageTest() throws InterruptedException {
 		LoginPopup loginPopup = new HomePage().open().goToLoginPopup();

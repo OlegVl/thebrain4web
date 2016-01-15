@@ -10,11 +10,13 @@ public abstract class MainPage<T> {
 
 	private static final String BASE_URL = "http://maak.staging.thebrain4web.com/";
 	private static final int IMPLICITLY_TIMEOUT = 10;
+	private static final int PAGE_LOAD_TIMEOUT = 50;
 	
 	public T openPage(Class<T> clazz) {
 		T page = PageFactory.initElements(getDriver(), clazz);
 		getDriver().get(BASE_URL + getPageUrl());
 		getDriver().manage().timeouts().implicitlyWait(IMPLICITLY_TIMEOUT, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		getDriver().manage().window().maximize();
 		return page;
 	}

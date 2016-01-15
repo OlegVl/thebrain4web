@@ -5,10 +5,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import static setup.SeleniumDriver.getDriver;
-
+import setup.WaitConditions;
 public class TutorialPage extends MainPage<TutorialPage>{
 
-	public static final String TITLE_NAME = "Some text is here";
+	private static final String TITLE_NAME = "Some text is here";
 	private static final String RELEVANT_KEY = "Rock";
 	private static final String COST = "10";
 	private static final String HOURS = "10";
@@ -17,8 +17,7 @@ public class TutorialPage extends MainPage<TutorialPage>{
 	private static final String STEP1_DESCRIPTION = "Some text";
 	private static final String STEP2_DESCRIPTION = "Some text";
 	private static final String STEP3_DESCRIPTION = "Some text";
-	private static final String MSG_IN_ALERT = getDriver().switchTo().alert().getText();
-	
+		
 	@FindBy(css = ".icon-camera-1")
 	WebElement uploadPicture;
 	
@@ -58,12 +57,17 @@ public class TutorialPage extends MainPage<TutorialPage>{
 	@FindBy(xpath = "//li[contains(text(),'__not required')]")
 	WebElement errorPopup;
 	
-	
+	@Override
+	public String getPageUrl() {
+		return "klusadvies/new";
+	}
+
 	public void verifyPopupError(){
+		String MSG_IN_ALERT = getDriver().switchTo().alert().getText();
 		Assert.assertEquals(errorPopup.getText().compareTo(MSG_IN_ALERT), true);
 	}
 	
-	public void uploadPicture(){
+	public void uploadPicture() throws InterruptedException{
 		uploadPicture.click();
 		uploadPicture.sendKeys("C:'\'Users'\'Korsar'\'Desktop'\'1.png");
 	}
@@ -91,7 +95,7 @@ public class TutorialPage extends MainPage<TutorialPage>{
 		step3.sendKeys(STEP3_DESCRIPTION);
 	}
 		
-	public void createNewTitle(){
+	public void createNewTitle() throws InterruptedException{
 		uploadPicture();
 		titleName.sendKeys(TITLE_NAME);
 		fillRelevantKeysField();
@@ -110,9 +114,4 @@ public class TutorialPage extends MainPage<TutorialPage>{
 		submitButton.click();
 	}
 	
-	@Override
-	public String getPageUrl() {
-		return "klusadvies/new";
-	}
-
 }

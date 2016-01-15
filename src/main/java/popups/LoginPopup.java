@@ -3,7 +3,6 @@ package popups;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 import pageobjects.HomePage;
 import pageobjects.MainPage;
 
@@ -32,11 +31,11 @@ public class LoginPopup extends MainPage<LoginPopup>{
 		return "inloggen";
 	}
 	
-	public HomePage login() throws InterruptedException{
+	public HomePage login() throws InterruptedException {
 		emailField.sendKeys(EMAIL);
 		passwordField.sendKeys(PASSWORD);
 		loginButton.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		return new HomePage();
 	}
 	

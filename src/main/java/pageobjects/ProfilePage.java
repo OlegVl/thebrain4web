@@ -3,7 +3,6 @@ package pageobjects;
 import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pageobjects.TutorialPage;
 import static setup.SeleniumDriver.getDriver;
 
 public class ProfilePage extends MainPage<ProfilePage> {
@@ -17,7 +16,7 @@ public class ProfilePage extends MainPage<ProfilePage> {
 	}
 
 	public void verifyCreatedTutorial() {
-		assertTrue(isTextPresent(TutorialPage.TITLE_NAME));
+		assertTrue(isTextPresent("Some text is here"));
 	}
 
 	protected boolean isTextPresent(String text) {
