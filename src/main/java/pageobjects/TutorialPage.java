@@ -16,6 +16,9 @@ public class TutorialPage extends MainPage<TutorialPage>{
 	private static final String STEP2_DESCRIPTION = "Some text";
 	private static final String STEP3_DESCRIPTION = "Some text";
 	
+	@FindBy(css = ".icon-camera-1")
+	WebElement uploadPicture;
+	
 	@FindBy(name = "title")
 	WebElement titleName;
 	
@@ -46,12 +49,23 @@ public class TutorialPage extends MainPage<TutorialPage>{
 	@FindBy(css = ".add-step")
 	WebElement addStep;
 	
-	public void createNewTitle() throws InterruptedException{
+	@FindBy(xpath = "//button[text()='Opslaan']")
+	WebElement submitButton;
+	
+	
+	public void createNewTitle(){
+		uploadPicture();
 		titleName.sendKeys(TITLE_NAME);
 		fillRelevantKeysField();
 		fillCostField();
 		fillDurationField();
 		fillAndAddNextStep();
+		submitButton.click();
+	}
+	
+	public void uploadPicture(){
+		uploadPicture.click();
+		uploadPicture.sendKeys("C:'\'Users'\'Korsar'\'Desktop'\'1.png");
 	}
 	
 	public void fillRelevantKeysField(){
