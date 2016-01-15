@@ -13,7 +13,7 @@ import popups.LoginPopup;
 public class CreateTutorialRecordTest {
 	
 	@Test
-	public void yahooLogin() throws InterruptedException {
+	public void createNewTitleTest() throws InterruptedException {
 		LoginPopup loginPopup = new HomePage().open().goToLoginPopup();
 		TutorialPage tutorialpage = loginPopup.login().goToTutorialPage();
 		tutorialpage.createNewTitle();

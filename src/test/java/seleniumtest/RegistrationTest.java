@@ -8,11 +8,11 @@ import org.junit.Test;
 import pageobjects.HomePage;
 
 public class RegistrationTest {
-	@Test
-	public void yahooLogin() {
-
-	}
 	
+	@Test
+	public void registerTest() {
+	}
+
 	@AfterClass
 	public static void tearDown() {
 		getDriver().close();
