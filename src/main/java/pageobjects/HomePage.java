@@ -1,8 +1,5 @@
 package pageobjects;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 import popups.LoginPopup;
 
 public class HomePage extends MainPage<HomePage>{
@@ -17,6 +14,10 @@ public class HomePage extends MainPage<HomePage>{
 	
 	public TutorialPage goToTutorialPage() {
 		return new TutorialPage().openPage(TutorialPage.class);
+	}
+	
+	public ProfilePage goToProfilePage () {
+		return new ProfilePage ().openPage(ProfilePage .class);
 	}
 
 	@Override

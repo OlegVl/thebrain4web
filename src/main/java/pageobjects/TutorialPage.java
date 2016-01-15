@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class TutorialPage extends MainPage<TutorialPage>{
 
-	private static final String TITLE_NAME = "Some text is here";
+	public static final String TITLE_NAME = "Some text is here";
 	private static final String RELEVANT_KEY = "Rock";
 	private static final String COST = "10";
 	private static final String HOURS = "10";
@@ -51,18 +51,7 @@ public class TutorialPage extends MainPage<TutorialPage>{
 	
 	@FindBy(xpath = "//button[text()='Opslaan']")
 	WebElement submitButton;
-	
-	
-	public void createNewTitle(){
-		uploadPicture();
-		titleName.sendKeys(TITLE_NAME);
-		fillRelevantKeysField();
-		fillCostField();
-		fillDurationField();
-		fillAndAddNextStep();
-		submitButton.click();
-	}
-	
+		
 	public void uploadPicture(){
 		uploadPicture.click();
 		uploadPicture.sendKeys("C:'\'Users'\'Korsar'\'Desktop'\'1.png");
@@ -91,6 +80,16 @@ public class TutorialPage extends MainPage<TutorialPage>{
 		step3.sendKeys(STEP3_DESCRIPTION);
 	}
 		
+	public void createNewTitle(){
+		uploadPicture();
+		titleName.sendKeys(TITLE_NAME);
+		fillRelevantKeysField();
+		fillCostField();
+		fillDurationField();
+		fillAndAddNextStep();
+		submitButton.click();
+	}
+	
 	@Override
 	public String getPageUrl() {
 		return "klusadvies/new";
