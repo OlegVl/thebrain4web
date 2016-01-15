@@ -11,10 +11,10 @@ import popups.LoginPopup;
 
 public class VerifyTutorialErrorTest {
 	@Test
-	public void createNewTitleTest() throws InterruptedException {
+	public void createNewTitleAndCheckErrorMessageTest() throws InterruptedException {
 		LoginPopup loginPopup = new HomePage().open().goToLoginPopup();
 		TutorialPage tutorialpage = loginPopup.login().goToTutorialPage();
-		tutorialpage.createNewTitle();
+		tutorialpage.createNewTitleWithoutPicture();
 		tutorialpage.verifyPopupError();
 	}
 	

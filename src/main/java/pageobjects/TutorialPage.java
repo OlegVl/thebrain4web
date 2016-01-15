@@ -101,6 +101,15 @@ public class TutorialPage extends MainPage<TutorialPage>{
 		submitButton.click();
 	}
 	
+	public void createNewTitleWithoutPicture(){
+		titleName.sendKeys(TITLE_NAME);
+		fillRelevantKeysField();
+		fillCostField();
+		fillDurationField();
+		fillAndAddNextStep();
+		submitButton.click();
+	}
+	
 	@Override
 	public String getPageUrl() {
 		return "klusadvies/new";
